@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes girarDado {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg); /* Rotación completa en un solo sentido */
-    }
+@keyframes girarYSubirBajar {
+  0% {
+    transform: translateY(0) rotate(0deg); /* Inicia en su posición original sin rotación */
   }
-  
-  .dado-animado {
-    animation: girarDado 3s ease-out forwards; /* Duración de 3s y mantiene el estado final */
+  50% {
+    transform: translateY(-100px) rotate(1800deg); /* Subir y girar (giro de 5 vueltas) */
   }
-  
+  100% {
+    transform: translateY(0) rotate(3600deg); /* Bajar y finalizar con giro completo */
+  }
+}
+
+.animate-roll {
+  animation: girarYSubirBajar 3s ease-out ; /* Duración de 3 segundos */
+}
+

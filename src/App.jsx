@@ -5,31 +5,30 @@ import { useState } from "react";
 function App({}) {
   const [isRolling, setIsRolling] = useState(false);
   const [diceNumbers, setDiceNumbers] = useState([1, 1]);
-  
+
   const handleRollDice = () => {
     setIsRolling(true);
-  
-  
+
     // Generar dos números aleatorios entre 1 y 6 para los dos dados
     const randomNumber1 = Math.floor(Math.random() * 6) + 1;
     const randomNumber2 = Math.floor(Math.random() * 6) + 1;
     setDiceNumbers([randomNumber1, randomNumber2]);
-  
+
     // Detener la animación después de 1 segundo (cuando termine el giro)
     setTimeout(() => {
       setIsRolling(false);
-    }, 1000);
-  };
-  
-  const diceImages = {
-    1: '/dado1.png',
-    2: '/dado2.png',
-    3: '/dado3.png',
-    4: '/dado4.png',
-    5: '/dado5.png',
-    6: '/dado6.png',
+      g;
+    }, 3000);
   };
 
+  const diceImages = {
+    1: "/dado1.png",
+    2: "/dado2.png",
+    3: "/dado3.png",
+    4: "/dado4.png",
+    5: "/dado5.png",
+    6: "/dado6.png",
+  };
 
   return (
     <div className="w-full h-screen flex items-center justify-evenly flex-row ">
@@ -397,18 +396,18 @@ function App({}) {
           </div>
         </div>
       </div>
-      <div className="bg-slate-500 w-80 h-80 flex justify-center items-center pt-12 flex-col gap-6">
+      <div className="h-80 flex justify-center items-center pt-12 flex-col gap-6">
         <div className="w-28 h-20 flex items-center justify-center gap-4">
-        {diceNumbers.map((diceNumbers, index) => (
-          <img 
-            key={index}
-            src={diceImages[diceNumbers]}
-            alt={`Dado ${diceNumbers}`}
-            className={`w-10 h-10 duration-2000 ${
-              isRolling ? 'animate-spin' : ''
-            }`}
-          />
-        ))}
+          {diceNumbers.map((diceNumbers, index) => (
+            <img
+              key={index}
+              src={diceImages[diceNumbers]}
+              alt={`Dado ${diceNumbers}`}
+              className={`w-10 h-10 duration-2000 ${
+                isRolling ? "animate-roll" : ""
+              }`}
+            />
+          ))}
         </div>
         <div className="w-20 h-14 flex items-center justify-center">
           <button
